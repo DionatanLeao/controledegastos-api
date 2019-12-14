@@ -24,6 +24,10 @@ public class LancamentoServico {
 	public Optional<Lancamento> buscarPorCodigo(Long codigo) {
 		return lancamentoRepositorio.findById(codigo);
 	}
+	//FiltrarPorTexto
+	public List<Lancamento> filtrarLancamentoPorTexto(String texto) {
+		return lancamentoRepositorio.findByDescricaoPorTexto(texto);
+	}
 	
 	//SalvarLançamento
 	public Lancamento salvar(Lancamento lancamento) {

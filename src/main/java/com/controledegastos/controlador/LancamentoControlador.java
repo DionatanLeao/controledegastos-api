@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.controledegastos.entidade.Lancamento;
@@ -38,6 +39,11 @@ public class LancamentoControlador {
 		Optional<Lancamento> lancamento = lancamentoServico.buscarPorCodigo(codigo);
 		return lancamento.isPresent() ? ResponseEntity.ok(lancamento.get()) : ResponseEntity.notFound().build();
 	
+	}
+	
+	@GetMapping("/filtrarPorTexto")
+	public ResponseEntity<List<Lancamento>> filtrarLancamentoPorTexto(@RequestParam("texto") String texto) {
+		return ResponseEntity.ok(lancamentoServico.filtrarLancamentoPorTexto(texto));
 	}
 	
 	//SalvarLançamento

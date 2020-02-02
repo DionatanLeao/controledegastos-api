@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "categoria")
+@Table(name="categoria")
 
 public class Categoria implements Serializable {
 

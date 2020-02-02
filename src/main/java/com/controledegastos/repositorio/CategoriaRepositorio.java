@@ -11,4 +11,5 @@ public interface CategoriaRepositorio extends JpaRepository<Categoria, Long> {
 	
 	@Query("select c from Categoria c where c.nome like %:texto%")
 	List<Categoria> findByNomePorTexto(@Param("texto") String texto);
+	
 }

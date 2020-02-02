@@ -17,8 +17,7 @@ public class PessoaServico {
 	private PessoaRepositorio pessoaRepositorio;
 	
 	//BuscarTodos
-	public List<Pessoa> buscarTodos() {	
-		
+	public List<Pessoa> buscarTodos() {			
 		return pessoaRepositorio.findAll();
 	}
 	
@@ -53,7 +52,11 @@ public class PessoaServico {
 		}
 		return pessoa.get();
 	}
-
+	
+	//BuscarCidades
+	public List<Pessoa> buscarCidades(String texto) {			
+		return pessoaRepositorio.findByCidades(texto);
+	}
 }
 
 

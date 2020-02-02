@@ -1,5 +1,10 @@
 package com.controledegastos.controlador;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.controledegastos.entidade.Pessoa;
 import com.controledegastos.servico.PessoaServico;
-import java.util.List;
-import java.util.Optional;
-import javax.validation.Valid;
 
 
 @RestController
@@ -57,6 +60,12 @@ public class PessoaControlador {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar(@PathVariable("codigo") Long codigo) {
 		pessoaServico.deletar(codigo);
+	}
+	
+	//BuscarCidades
+	@GetMapping("/cidades")
+	public ResponseEntity<List<Pessoa>> buscarCidades(@RequestParam("texto") String texto) {
+		return ResponseEntity.ok(pessoaServico.buscarCidades(texto));
 	}
 }
 
